@@ -1,17 +1,27 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
-import "./App.css";
 import Menu from "./menu/Menu";
+import styled from "styled-components";
+
+const Wrapper = styled.section`
+  background-color: #282c34;
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white; 
+  text-align: center;
+`;
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
+      <Wrapper>
+        <header>
           <Menu />
         </header>
-      </div>
+      </Wrapper>
     );
   }
 }
