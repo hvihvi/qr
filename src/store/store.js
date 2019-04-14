@@ -3,17 +3,17 @@ import { createStore } from "redux";
 const initialState = {
   tasks: [
     {
-      id: "abc123",
+      id: 123,
       title: "My first task",
       description: "Something to do"
     },
     {
-      id: "abcd123",
+      id: 234,
       title: "My second task",
       description: "Something to do"
     },
     {
-      id: "abce123",
+      id: 345,
       title: "My third task",
       description: "Something to do"
     }

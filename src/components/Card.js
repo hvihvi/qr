@@ -2,6 +2,8 @@ import styled from "styled-components";
 
 export default styled.div`
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
   z-index: 1;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
   transition: box-shadow 0.2s ease-in-out;

@@ -13,6 +13,9 @@ const Wrapper = styled.div`
 
 const Item = styled.div`
   flex: 1;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
 `;
 
 const FormWrapper = ({ children }) => (

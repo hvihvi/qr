@@ -20,7 +20,7 @@ const Input = styled.input`
 const FormTextAreaInput = ({ label, ...rest }) => (
   <Container>
     <Label>{label}</Label>
-    <Input type="textarea" {...rest} rows={20} />
+    <Input type="textarea" rows={20} cols={30} {...rest} />
   </Container>
 );
 

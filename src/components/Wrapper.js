@@ -6,11 +6,10 @@ const Wrapper = styled.section`
   max-height: 100vh; //100% view height
   width: 100vw; // 100% view width
   max-width: 100vw; // 100% view width
-  flex: 1;
-  flex-wrap: wrap;
   background-color: #282c34;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   font-size: calc(10px + 2vmin);
   color: white;
 `;
