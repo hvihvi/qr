@@ -24,6 +24,8 @@ const reducer = (state = initialState, action) => {
   switch (action.type) {
     case CREATE_TASK:
       return { ...state, tasks: [...state.tasks, action.task] };
+    case EDIT_TASK:
+      return { ...state, tasks: [...state.tasks, action.task] };
     default:
       return { ...state };
   }
@@ -32,6 +34,12 @@ const reducer = (state = initialState, action) => {
 const CREATE_TASK = "CREATE_TASK";
 export const createTaskAction = task => ({
   type: CREATE_TASK,
+  task
+});
+
+const EDIT_TASK = "EDIT_TASK";
+export const editTaskAction = task => ({
+  type: EDIT_TASK,
   task
 });
 
