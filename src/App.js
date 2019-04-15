@@ -7,6 +7,7 @@ import Wrapper from "./components/Wrapper";
 import { store } from "./store/store";
 import CreateTask from "./pages/tasks/create/CreateTask";
 import TaskList from "./pages/tasks/list/TaskList";
+import Task from "./pages/tasks/task/Task";
 
 const routes = [
   {
@@ -22,8 +23,12 @@ const routes = [
     component: CreateTask
   },
   {
-    path: "/tasklist",
+    path: "/task",
     component: TaskList
+  },
+  {
+    path: "/task/:id",
+    component: Task
   }
 ];
 

@@ -10,7 +10,7 @@ const Home = () => (
     <Link to="/createtask/">
       <FatCircleCta src={create} alt="logo" />
     </Link>
-    <Link to="/tasklist/">
+    <Link to="/task/">
       <FatCircleCta src={list} alt="logo" />
     </Link>
     <Link to="/qrread/">
