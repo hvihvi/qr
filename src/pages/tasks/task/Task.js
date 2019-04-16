@@ -2,11 +2,10 @@ import React from "react";
 import { connect } from "react-redux";
 import Card from "../../../components/Card";
 import QrFromId from "../../qr/display/QrFromId";
+import FormButton from "../../../components/form/FormButton";
 
 const Task = ({ tasks, match }) => {
-  console.log(tasks);
-  const task = tasks.find(task => task.id+ "" === match.params.id);
-  console.log(task);
+  const task = tasks.find(task => task.id + "" === match.params.id);
   return (
     <div>
       <Card>
@@ -14,7 +13,8 @@ const Task = ({ tasks, match }) => {
           #{task.id} {task.title}
         </h1>
         <QrFromId id={task.id} />
-        <text>{task.description}</text>
+        <div>{task.description}</div>
+        <FormButton onclick={e => window.print()}>print icon todo</FormButton>
       </Card>
     </div>
   );
