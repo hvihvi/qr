@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import FormTextInput from "../../../components/form/FormTextInput";
 import Card from "../../../components/Card";
@@ -18,12 +19,14 @@ const TaskList = ({ tasks }) => {
           task => ("" + task.id).includes(search) || task.title.includes(search)
         )
         .map(task => (
-          <Card>
-            <div>{task.id}</div>
-            <QrFromId id={task.id} />
-            <div>{task.title}</div>
-            <div>{task.description}</div>
-          </Card>
+          <Link to={`/task/${task.id}/`}>
+            <Card>
+              <div>{task.id}</div>
+              <QrFromId id={task.id} />
+              <div>{task.title}</div>
+              <div>{task.description}</div>
+            </Card>
+          </Link>
         ))}
     </div>
   );
