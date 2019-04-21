@@ -4,23 +4,24 @@ import styled from "styled-components";
 const Container = styled.div`
   padding: 20px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const Label = styled.label`
-  width: 20%;
-  padding-left: 10px;
-  padding-right: 10px;
+  margin: 5px;
 `;
 
-const Input = styled.input`
+const TextArea = styled.textarea`
   width: 50%;
+  margin: 5px;
+  width: 100%;
 `;
 
 const FormTextAreaInput = ({ label, ...rest }) => (
   <Container>
     <Label>{label}</Label>
-    <Input type="textarea" rows={20} cols={30} {...rest} />
+    <TextArea rows={10} {...rest} />
   </Container>
 );
 

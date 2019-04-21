@@ -4,17 +4,17 @@ import styled from "styled-components";
 const Container = styled.div`
   padding: 20px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const Label = styled.label`
-  width: 20%;
-  padding-left: 10px;
-  padding-right: 10px;
+  margin: 5px;
 `;
 
 const Input = styled.input`
   width: 50%;
+  margin: 5px;
 `;
 
 const FormTextInput = ({ label, ...rest }) => (

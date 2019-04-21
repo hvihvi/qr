@@ -2,10 +2,11 @@ import React from "react";
 import styled from "styled-components";
 
 const Img = styled.img`
-  width: 12vh;
+  width: 70%;
 `;
 
 const Button = styled.button`
+  background-color: #47556b;
   border-radius: 50%;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
   margin: 5vh;
