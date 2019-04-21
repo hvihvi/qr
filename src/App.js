@@ -8,6 +8,7 @@ import { store } from "./store/store";
 import CreateTask from "./pages/tasks/create/CreateTask";
 import TaskList from "./pages/tasks/list/TaskList";
 import Task from "./pages/tasks/task/Task";
+import Footer from "./pages/home/Footer";
 
 const routes = [
   {
@@ -42,6 +43,7 @@ const App = () => {
               <Route key={key} exact {...route} />
             ))}
           </Switch>
+          <Footer />
         </Wrapper>
       </Router>
     </Provider>
