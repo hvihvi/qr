@@ -16,6 +16,11 @@ const initialState = {
       id: 345,
       title: "My third task",
       description: "Something to do"
+    },
+    {
+      id: 456,
+      title: "My fourth task",
+      description: "Something to do"
     }
   ]
 };
