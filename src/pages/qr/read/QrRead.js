@@ -1,7 +1,7 @@
 import React from "react";
-import { useState } from "react";
 import QrReader from "react-qr-reader";
 import styled from "styled-components";
+import { withRouter } from "react-router-dom";
 
 const Wrapper = styled.div`
   flex: 1;
@@ -13,21 +13,24 @@ const Element = styled.div`
   padding: 10px;
 `;
 
-const QrRead = () => {
-  const [qrValue, setQrValue] = useState(0);
+const QrRead = ({ history }) => {
   return (
     <Wrapper>
       <Element>
         <QrReader
-          delay={300}
-          facingMode="environment"
+          facingMode="user"
           resolution={600}
+          delay={500}
           onError={error => console.error(error)}
-          onScan={value => setQrValue(value)}
+          onScan={value => {
+            if (value) {
+              history.push("/task/" + value);
+            }
+          }}
         />
       </Element>
     </Wrapper>
   );
 };
 
-export default QrRead;
+export default withRouter(QrRead);
