@@ -9,6 +9,7 @@ import CreateTask from "./pages/tasks/create/CreateTask";
 import TaskList from "./pages/tasks/list/TaskList";
 import Task from "./pages/tasks/task/Task";
 import Footer from "./pages/home/Footer";
+import ScrollBar from "./components/form/ScrollBar";
 
 const routes = [
   {
@@ -37,14 +38,16 @@ const App = () => {
   return (
     <Provider store={store}>
       <Router>
-        <Wrapper>
-          <Switch>
-            {routes.map((route, key) => (
-              <Route key={key} exact {...route} />
-            ))}
-          </Switch>
-          <Footer />
-        </Wrapper>
+        <ScrollBar>
+          <Wrapper>
+            <Switch>
+              {routes.map((route, key) => (
+                <Route key={key} exact {...route} />
+              ))}
+            </Switch>
+          </Wrapper>
+        </ScrollBar>
+        <Footer />
       </Router>
     </Provider>
   );

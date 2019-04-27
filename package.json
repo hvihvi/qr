@@ -1,12 +1,13 @@
 {
   "name": "qr",
   "version": "0.1.0",
-  "homepage": "https://hvihvi.github.io/qr",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^3.9.3",
     "@material-ui/icons": "^3.0.2",
+    "express": "^4.16.4",
     "gh-pages": "^2.0.1",
+    "path": "^0.12.7",
     "qrcode.react": "^0.9.3",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
@@ -20,8 +21,8 @@
   "scripts": {
     "predeploy": "yarn build",
     "deploy": "gh-pages -d build",
-    "prettier": "prettier --write '{./src/**/*.js,./src/**/*.json}'",
     "start": "react-scripts start",
+    "start:server": "node src/server.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -36,7 +37,6 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "prettier": "^1.16.4",
-    "redux-devtools": "^3.5.0"
+    "prettier": "^1.16.4"
   }
 }
