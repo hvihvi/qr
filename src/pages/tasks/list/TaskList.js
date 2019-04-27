@@ -4,12 +4,11 @@ import { connect } from "react-redux";
 import FormTextInput from "../../../components/form/FormTextInput";
 import Card from "../../../components/Card";
 import QrFromId from "../../qr/display/QrFromId";
-import ScrollBar from "../../../components/form/ScrollBar";
 
 const TaskList = ({ tasks }) => {
   const [search, setSearch] = useState("");
   return (
-    <ScrollBar>
+    <>
       <FormTextInput
         label="Filter tasks:"
         value={search}
@@ -29,7 +28,7 @@ const TaskList = ({ tasks }) => {
             </Card>
           </Link>
         ))}
-    </ScrollBar>
+    </>
   );
 };
 

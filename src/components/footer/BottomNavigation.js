@@ -2,11 +2,10 @@ import React from "react";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
-  align-self: end;
+  align-self: flex-end;
   background-color: #46556b;
   display: flex;
   justify-content: center;
-  height: 56px;
   width: 100%;
 `;
 
