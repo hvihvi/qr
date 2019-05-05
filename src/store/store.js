@@ -1,32 +1,13 @@
 import { createStore } from "redux";
 
 const initialState = {
-  tasks: [
-    {
-      id: 123,
-      title: "My first task",
-      description: "Something to do"
-    },
-    {
-      id: 234,
-      title: "My second task",
-      description: "Something to do"
-    },
-    {
-      id: 345,
-      title: "My third task",
-      description: "Something to do"
-    },
-    {
-      id: 456,
-      title: "My fourth task",
-      description: "Something to do"
-    }
-  ]
+  tasks: []
 };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
+    case LOAD_TASKS:
+      return { ...state, tasks: action.tasks };
     case CREATE_TASK:
       return { ...state, tasks: [...state.tasks, action.task] };
     case EDIT_TASK:
@@ -35,6 +16,12 @@ const reducer = (state = initialState, action) => {
       return { ...state };
   }
 };
+
+const LOAD_TASKS = "LOAD_TASK_LIST";
+export const loadTasksAction = tasks => ({
+  type: LOAD_TASKS,
+  tasks
+});
 
 const CREATE_TASK = "CREATE_TASK";
 export const createTaskAction = task => ({

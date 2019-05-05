@@ -1,12 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import FormTextInput from "../../../components/form/FormTextInput";
 import Card from "../../../components/Card";
 import QrFromId from "../../qr/display/QrFromId";
+import { loadTasksAction } from "../../../store/store";
 
-const TaskList = ({ tasks }) => {
+const TaskList = ({ tasks, loadTasks }) => {
   const [search, setSearch] = useState("");
+  useEffect(() => {
+    fetch("/api/tasks")
+      .then(response => response.json())
+      .then(json => loadTasks(json))
+      .catch(e => console.log(e));
+  }, []);
   return (
     <>
       <FormTextInput
@@ -36,4 +43,11 @@ const mapStateToProps = state => ({
   tasks: state.tasks
 });
 
-export default connect(mapStateToProps)(TaskList);
+const mapDispatchToProps = dispatch => ({
+  loadTasks: tasks => dispatch(loadTasksAction(tasks))
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(TaskList);
