@@ -16,15 +16,32 @@ const app = express();
 
 app.use(express.static(path.join(__dirname, "../build")));
 
-app.get("/api/tasks", (req, res) => {
+app.get("/api/firebase/tasks", (req, res) => {
   firebase
     .database()
     .ref("/tasks")
     .on("value", snapshot => res.json(snapshot.val()), err => console.log(err));
 });
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../build", "index.html"));
+const tasks = [
+  {
+    id: 345,
+    title: "My third task",
+    description: "Something to do"
+  },
+  {
+    id: 456,
+    title: "My fourth task",
+    description: "Something to do"
+  }
+];
+
+app.get("/api/tasks", (_, res) => {
+  res.send(tasks);
 });
+
+//app.get("*", (req, res) => {
+//  res.sendFile(path.join(__dirname, "../build", "index.html"));
+//});
 
 app.listen(9000);
