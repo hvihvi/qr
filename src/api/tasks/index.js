@@ -1,6 +1,9 @@
 const express = require("express");
+const bodyParser = require("body-parser");
 
 const app = express();
+
+app.use(bodyParser.json());
 
 const tasks = [
   {
@@ -15,20 +18,18 @@ const tasks = [
   }
 ];
 
-const handler = (_, res) => {
-  try {
-    res.send(tasks);
-  } catch (error) {
-    res.send({ error: error.message });
-  }
-};
-
 app.get("/api/tasks", (_, res) => {
   try {
     res.send(tasks);
   } catch (error) {
     res.send({ error: error.message });
   }
+});
+
+app.post("/api/task/:id", (req, res) => {
+  console.log(req);
+  tasks.push(req.body);
+  res.send(req.body);
 });
 
 if (!process.env.IS_NOW) {

@@ -1,14 +1,13 @@
 import React, { useState } from "react";
-import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import { createTaskAction } from "../../../store/store";
 import FormButton from "../../../components/form/FormButton";
 import FormTextInput from "../../../components/form/FormTextInput";
 import FormWrapper from "../../../components/form/FormContainer";
 import FormTextAreaInput from "../../../components/form/FormTextAreaInput";
 import * as crypto from "../../../libs/crypto";
+import axios from "axios";
 
-const CreateTask = ({ history, createTask }) => {
+const CreateTask = ({ history }) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
@@ -17,12 +16,14 @@ const CreateTask = ({ history, createTask }) => {
       onSubmit={e => {
         // prevents page refresh on submit
         e.preventDefault();
-        createTask({
-          id: crypto.hash(title + description),
-          title,
-          description
-        });
-        history.push("/");
+        const id = crypto.hash(title + description);
+        axios
+          .post(`/api/task/${id}`, {
+            id,
+            title,
+            description
+          })
+          .then(() => history.push("/"));
       }}
     >
       <FormWrapper>
@@ -42,15 +43,4 @@ const CreateTask = ({ history, createTask }) => {
   );
 };
 
-const mapStateToProps = state => ({});
-
-const mapDispatchToProps = dispatch => ({
-  createTask: task => dispatch(createTaskAction(task))
-});
-
-export default withRouter(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(CreateTask)
-);
+export default withRouter(CreateTask);

@@ -8,8 +8,6 @@ const reducer = (state = initialState, action) => {
   switch (action.type) {
     case LOAD_TASKS:
       return { ...state, tasks: action.tasks };
-    case CREATE_TASK:
-      return { ...state, tasks: [...state.tasks, action.task] };
     case EDIT_TASK:
       return { ...state, tasks: [...state.tasks, action.task] };
     default:
@@ -21,12 +19,6 @@ const LOAD_TASKS = "LOAD_TASK_LIST";
 export const loadTasksAction = tasks => ({
   type: LOAD_TASKS,
   tasks
-});
-
-const CREATE_TASK = "CREATE_TASK";
-export const createTaskAction = task => ({
-  type: CREATE_TASK,
-  task
 });
 
 const EDIT_TASK = "EDIT_TASK";
