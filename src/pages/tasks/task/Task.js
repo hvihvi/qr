@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import Card from "../../../components/Card";
+import Card from "../../../components/cards/Card";
 import QrFromId from "../../qr/display/QrFromId";
 import FormButton from "../../../components/form/FormButton";
 

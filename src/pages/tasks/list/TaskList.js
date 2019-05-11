@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import FormTextInput from "../../../components/form/FormTextInput";
-import Card from "../../../components/Card";
+import Card from "../../../components/cards/Card";
 import QrFromId from "../../qr/display/QrFromId";
 import { loadTasksAction } from "../../../store/store";
 

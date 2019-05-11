@@ -24,7 +24,7 @@
     "predeploy": "yarn build",
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
-    "start:server": "nodemon src/server.js --watch src",
+    "start:tasks": "nodemon src/api/tasks/index.js --watch src",
     "build": "react-scripts build",
     "now-build": "react-scripts build",
     "test": "react-scripts test",
