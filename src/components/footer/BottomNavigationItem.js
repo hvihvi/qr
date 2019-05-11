@@ -19,8 +19,8 @@ const Img = styled.img`
   width: 25%;
 `;
 
-const BottomNavigationItem = ({ icon, label }) => (
-  <Root>
+const BottomNavigationItem = ({ icon, label, ...props }) => (
+  <Root {...props}>
     <Wrapper>
       <Img src={icon} alt={label} />
     </Wrapper>
