@@ -1,11 +1,16 @@
-import React from "react";
-import { connect } from "react-redux";
+import React, { useEffect, useState } from "react";
 import Card from "../../../components/cards/Card";
 import QrFromId from "../../qr/display/QrFromId";
 import FormButton from "../../../components/form/FormButton";
 
-const Task = ({ tasks, match }) => {
-  const task = tasks.find(task => task.id + "" === match.params.id);
+const Task = ({ match }) => {
+  const [task, setTask] = useState({});
+  useEffect(() => {
+    fetch(`/api/task/${match.params.id}`)
+      .then(response => response.json())
+      .then(json => setTask(json))
+      .catch(e => console.log(e));
+  }, []);
   return (
     <div>
       <Card>
@@ -20,8 +25,4 @@ const Task = ({ tasks, match }) => {
   );
 };
 
-const mapStateToProps = state => ({
-  tasks: state.tasks
-});
-
-export default connect(mapStateToProps)(Task);
+export default Task;

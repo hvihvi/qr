@@ -26,10 +26,19 @@ app.get("/api/tasks", (_, res) => {
   }
 });
 
-app.post("/api/task/:id", (req, res) => {
-  console.log(req);
-  tasks.push(req.body);
-  res.send(req.body);
+app.post("/api/task", (req, res) => {
+  try {
+    tasks.push(req.body);
+    res.status(200).json({ status: 200, created: req.body });
+  } catch (error) {
+    res.send({ error: error.message });
+  }
+});
+
+app.get("/api/task/:id", (req, res) => {
+  console.log(req.params);
+  const task = tasks.find(task => task.id + "" === req.params.id);
+  res.json(task);
 });
 
 if (!process.env.IS_NOW) {

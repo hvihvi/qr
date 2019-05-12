@@ -16,10 +16,9 @@ const CreateTask = ({ history }) => {
       onSubmit={e => {
         // prevents page refresh on submit
         e.preventDefault();
-        const id = crypto.hash(title + description);
         axios
-          .post(`/api/task/${id}`, {
-            id,
+          .post(`/api/task`, {
+            id: crypto.hash(title + description),
             title,
             description
           })
